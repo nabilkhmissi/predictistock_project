@@ -1,0 +1,32 @@
+<div>
+    <h2 class="section-title">My companies</h2>
+    <ng-container *ngIf="my_companies$|async as companies">
+        <table class="custom-table" *ngIf="companies.length >0 ; else empty">
+            <thead>
+                <th>Company name</th>
+                <th>creation</th>
+                <th>is enabled</th>
+                <th>Actions</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let c of companies">
+                    <td>{{ c.name }}</td>
+                    <td>{{ c.creationDate | date : "dd-MM-yyyy" }}</td>
+                    <td>
+                        <span class="status-badge" [class.success]="c.enabled" [class.danger]="!c.enabled">
+                            {{ c.enabled ? 'enabled' : 'not enabled'}}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="material-symbols-outlined action-btn" (click)="goToDashboard(c.id, c.name)">
+                            visibility
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <ng-template #empty>
+            <app-empty-list></app-empty-list>
+        </ng-template>
+    </ng-container>
+</div>

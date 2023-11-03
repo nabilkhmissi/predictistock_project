@@ -1,0 +1,22 @@
+<ng-container *ngIf="categories$|async as categories">
+    <table class="custom-table" *ngIf="categories.length; else empty">
+        <thead>
+            <th>Name</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of categories">
+                <td> {{ c.name }} </td>
+                <td>
+                    <span class="material-symbols-outlined" (click)="delete(c._id)">
+                        delete
+                    </span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

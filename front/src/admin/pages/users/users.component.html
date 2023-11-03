@@ -1,0 +1,16 @@
+<div style="width: 100%;display: flex;align-items: center;justify-content: space-between;">
+    <h1>Users</h1>
+    <input type="text" placeholder="search user" [(ngModel)]="search" name="search" (input)="handleSearch($event)">
+</div>
+<table class="custom-table">
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+    </thead>
+    <tr *ngFor="let u of (users$ | async)">
+        <td>{{ u.name }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.role }}</td>
+    </tr>
+</table>

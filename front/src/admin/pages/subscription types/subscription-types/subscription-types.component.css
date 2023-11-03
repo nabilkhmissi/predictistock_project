@@ -1,0 +1,36 @@
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+}
+
+.tabs a {
+    padding: 0.5rem;
+    position: relative;
+}
+
+.tabs a:hover::after {
+    content: "";
+    height: 5px;
+    background-color: rgb(93, 93, 150);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.tab-active {
+    color: rgb(93, 93, 150);
+}
+
+.tab-active::after {
+    content: "";
+    height: 5px;
+    background-color: rgb(93, 93, 150);
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}

@@ -1,0 +1,13 @@
+<div class="header">
+    <h1>PredictStock</h1>
+    <div class="nav-links">
+        <div *ngIf="(authUser$|async) as user; else authElse" style="display: flex;gap: 1rem;align-items: center;">
+            <a routerLink="/profile">{{ user.name }}</a>
+            <button class="logout-btn" (click)="logout()">Logout</button>
+        </div>
+        <ng-template #authElse>
+            <a routerLink="/login">Login</a>
+            <a routerLink="/signup">Signup</a>
+        </ng-template>
+    </div>
+</div>

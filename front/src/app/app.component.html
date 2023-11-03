@@ -1,0 +1,4 @@
+<app-header></app-header>
+<app-loading *ngIf="loading$|async"></app-loading>
+<app-alert *ngIf="alert$|async as alert" [message]="alert"></app-alert>
+<router-outlet></router-outlet>

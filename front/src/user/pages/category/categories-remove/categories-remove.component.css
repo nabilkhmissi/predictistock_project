@@ -1,0 +1,12 @@
+span {
+    cursor: pointer;
+    padding: 0.5rem;
+    background-color: rgb(249, 131, 131);
+    border-radius: 10px;
+    color: white;
+}
+
+span:hover {
+    cursor: pointer;
+    background-color: rgb(236, 106, 106);
+}

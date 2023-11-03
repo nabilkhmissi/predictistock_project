@@ -1,0 +1,18 @@
+<ng-container *ngIf="suppliers$|async as suppliers">
+    <table class="custom-table" *ngIf="suppliers.length; else empty">
+        <thead>
+            <th>Name</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of suppliers">
+                <td> {{ a.name }} </td>
+                <td> {{ a.email }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

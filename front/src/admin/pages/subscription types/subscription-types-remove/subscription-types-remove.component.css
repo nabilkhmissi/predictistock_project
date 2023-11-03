@@ -1,0 +1,10 @@
+span {
+    padding: 0.5rem;
+    background-color: #bfc3ea;
+    border-radius: 10px;
+}
+
+span:hover {
+    cursor: pointer;
+    background-color: #d9dcfc;
+}

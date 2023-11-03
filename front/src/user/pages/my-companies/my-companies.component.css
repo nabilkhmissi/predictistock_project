@@ -1,0 +1,10 @@
+span.action-btn {
+    padding: 0.5rem;
+    background-color: #bfc3ea;
+    border-radius: 10px;
+}
+
+span.action-btn:hover {
+    cursor: pointer;
+    background-color: #d9dcfc;
+}

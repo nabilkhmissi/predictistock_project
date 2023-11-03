@@ -1,0 +1,22 @@
+<div class="section-title">
+    <span class="material-symbols-outlined">
+        group
+    </span>
+    <h2>Customers</h2>
+</div>
+<ng-container *ngIf="customers$|async as customers">
+    <table class="custom-table" *ngIf="customers.length; else empty">
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of customers">
+                <td> {{ c.name }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

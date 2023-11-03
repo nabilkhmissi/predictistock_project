@@ -1,0 +1,184 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+:root {
+    --primary-color: #6f6af8;
+    --body-color: #f8f9fb;
+    --button-hover-color: #8985ff;
+}
+
+
+body {
+    background-color: var(--body-color);
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+    color: black;
+}
+
+h1 {
+    font-size: 30px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+h3 {
+    font-size: 23px;
+}
+
+h4 {
+    font-size: 19px;
+}
+
+button {
+    cursor: pointer;
+}
+
+.mt-1 {
+    margin-top: 1rem;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-color);
+}
+
+input,
+button {
+    padding: 0.4rem;
+    outline: none;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    gap: 0.3rem;
+}
+
+.form-card h1 {
+    margin-bottom: 1rem;
+}
+
+.form-group button:hover {
+    background-color: var(--button-hover-color);
+}
+
+.form-card {
+    padding: 1rem;
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.13);
+}
+
+.section-title {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+}
+
+span.material-symbols-outlined {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    margin-right: 0.5rem;
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+/* tables style */
+.custom-table {
+    width: 100%;
+}
+
+.custom-table thead{
+    background-color: #e7e7e7;
+}
+
+.custom-table td,
+th {
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.custom-table tr:hover {
+    background-color: #eeeeee;
+}
+
+.custom-table table th {
+    padding: 1rem;
+    text-align: start;
+}
+
+/* sidebar */
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 210px;
+}
+
+.sidebar a {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar a:hover {
+    background-color: #deeafb;
+}
+
+.sidebar-active {
+    background-color: #deeafb;
+}
+
+
+.status-badge {
+    padding: 0.1rem 0.5rem;
+    color: white;
+    border-radius: 10px;
+}
+
+.success {
+    background-color: green;
+}
+
+.danger {
+    background-color: rgb(254, 78, 78);
+}
+
+/* navigation in every sub page sub pages */
+.navigation {
+    display: flex;
+    margin-bottom: 1rem;
+}
+
+.navigation a {
+    padding: 0.5rem;
+}
+
+.navigation a:hover {
+    background-color: #e7e7e7;
+}
+
+.navigation-active {
+    background-color: #e7e7e7;
+}

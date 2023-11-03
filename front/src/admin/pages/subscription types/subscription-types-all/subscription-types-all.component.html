@@ -1,0 +1,19 @@
+<div *ngIf="types$ | async as types">
+    <ng-container *ngIf="types.length>0; else emptyList">
+        <table class="custom-table">
+            <thead>
+                <th>Amount ($)</th>
+                <th>Duration (months)</th>
+                <th>Articles</th>
+            </thead>
+            <tr *ngFor="let t of types">
+                <td>{{ t.amount }}</td>
+                <td>{{ t.duration }}</td>
+                <td>{{ t.allowedArticleNumbers }}</td>
+            </tr>
+        </table>
+    </ng-container>
+    <ng-template #emptyList>
+        <app-empty-list></app-empty-list>
+    </ng-template>
+</div>

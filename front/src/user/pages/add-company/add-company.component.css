@@ -1,0 +1,33 @@
+.sub-type-card {
+    padding: 1rem;
+    background-color: white;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.137);
+    border-radius: 5px;
+    overflow: hidden;
+    align-items: center;
+}
+
+.sub-type-card:hover {
+    outline: 3px solid rgb(80, 80, 178);
+    cursor: pointer;
+}
+
+.sub-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    gap: 0.5rem;
+}
+
+.sub-col h3 {
+    font-size: 18px;
+}
+
+.selected {
+    outline: 3px solid rgb(80, 80, 178);
+}

@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label>company ID</label>
+    <input type="text" [(ngModel)]="companyId" name="companyId" disabled>
+</div>
+<div class="form-group">
+    <label>Supplier Name</label>
+    <input type="text" [(ngModel)]="name" name="name">
+</div>
+
+<div class="form-group">
+    <label>Supplier Email</label>
+    <input type="text" [(ngModel)]="email" name="email">
+</div>
+
+<div class="form-group">
+    <button class="primary-btn" (click)="create()">Create</button>
+</div>

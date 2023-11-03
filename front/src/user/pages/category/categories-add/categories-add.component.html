@@ -1,0 +1,12 @@
+<div class="form-group">
+    <label>Selected company</label>
+    <input type="text" [(ngModel)]="companyName" name="companyName" disabled>
+</div>
+<div class="form-group">
+    <label>Category name</label>
+    <input type="text" [(ngModel)]="categoryName" name="categoryName">
+</div>
+
+<div class="form-group">
+    <button class="primary-btn" (click)="createCategory()">Create</button>
+</div>

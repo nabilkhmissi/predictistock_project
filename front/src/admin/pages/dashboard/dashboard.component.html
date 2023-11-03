@@ -1,0 +1,19 @@
+<div class="dashboard">
+    <div class="sidebar">
+        <a routerLink="home" routerLinkActive="sidebar-active"><span class="material-symbols-outlined">
+                home
+            </span>Home</a>
+        <a routerLink="users" routerLinkActive="sidebar-active"><span class="material-symbols-outlined">
+                group
+            </span>Users</a>
+        <a routerLink="subscription-types" routerLinkActive="sidebar-active"><span class="material-symbols-outlined">
+                sell
+            </span>Subscription Types</a>
+    </div>
+    <div class="content">
+        <router-outlet></router-outlet>
+    </div>
+    <app-loading *ngIf="loading$ | async"></app-loading>
+    <app-alert *ngIf="alert$|async as alert" [message]="alert"></app-alert>
+
+</div>

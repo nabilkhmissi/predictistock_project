@@ -1,0 +1,62 @@
+version: '3'
+services:
+  users_db:
+    container_name: postgres_db
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: clients_db
+
+  article_db:
+    container_name: article_db
+    image: mongo
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - article_db:/data
+
+  client_db:
+    container_name: client_db
+    image: mongo
+    restart: always
+    ports:
+      - 27018:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    volumes:
+      - client_db:/data
+
+  #gateway:
+  #  container_name: gateway
+  #  build:
+  #    context: ./gateway
+  #  ports:
+  #    - 8000:8000
+  #    
+  #front_end:
+  #  container_name: predictiStock_front
+  #  build:
+  #    context: ./front
+  #  ports:
+  #    - 4200:80
+  #back_end:
+  #  container_name: predictiStock_server
+  #  build:
+  #    context: ./users
+  #  environment:
+  #    DB_URL: postgres_db
+  #  ports:
+  #    - 8089:8089
+  #  depends_on:
+  #    - users_db
+volumes:
+  article_db:
+  client_db:

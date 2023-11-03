@@ -1,0 +1,16 @@
+<ng-container *ngIf="categories$|async as categories">
+    <table class="custom-table" *ngIf="categories.length; else empty">
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of categories">
+                <td> {{ c.name }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

@@ -1,0 +1,18 @@
+<ng-container *ngIf="articles$|async as articles">
+    <table class="custom-table" *ngIf="articles.length; else empty">
+        <thead>
+            <th>Name</th>
+            <th>Quantity</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of articles">
+                <td> {{ a.name }} </td>
+                <td> {{ a.quantity }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

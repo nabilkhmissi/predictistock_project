@@ -1,0 +1,36 @@
+<div>
+    <h2>Create company</h2>
+    <div class="form-group">
+        <label>Owner</label>
+        <input type="text" [(ngModel)]="ownerName" name="ownerName" disabled>
+    </div>
+    <div class="form-group">
+        <label>Owner email</label>
+        <input type="text" [(ngModel)]="ownerEmail" name="ownerEmail" disabled>
+    </div>
+    <div class="form-group">
+        <label>Company name</label>
+        <input type="text" [(ngModel)]="companyName" name="companyName">
+    </div>
+
+    <div class="sub-type-card" *ngFor="let type of types$| async" (click)="selectType(type.id)"
+        [class.selected]="selected===type.id">
+        <div class="sub-col">
+            <p>Price</p>
+            <h3> {{ type.amount }} $</h3>
+        </div>
+        <div class="sub-col">
+            <p>Duration</p>
+            <h3>{{ type.duration }} months</h3>
+        </div>
+        <div class="sub-col">
+            <p>Allowed articles</p>
+            <h3>{{ type.allowedArticleNumbers }} </h3>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <button class="primary-btn" (click)="createCompany()">Create</button>
+    </div>
+</div>

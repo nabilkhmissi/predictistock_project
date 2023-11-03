@@ -1,0 +1,10 @@
+.dashboard {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+
+.content {
+    width: 100%;
+}

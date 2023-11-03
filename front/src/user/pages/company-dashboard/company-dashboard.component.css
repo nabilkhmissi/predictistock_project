@@ -1,0 +1,33 @@
+.company-header {
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4ff;
+}
+
+.tabs {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    background-color: rgb(225, 225, 255)
+}
+
+.tab-active {
+    background-color: #ececfe;
+    color: rgb(80, 80, 178)
+}
+
+a {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a:hover {
+    background-color: #ececfe;
+    color: rgb(80, 80, 178);
+}
+.mb-1{
+    margin-bottom: 0.5rem;
+}

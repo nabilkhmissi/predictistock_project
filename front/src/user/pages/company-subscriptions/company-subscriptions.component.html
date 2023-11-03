@@ -1,0 +1,28 @@
+<div class="section-title">
+    <span class="material-symbols-outlined">
+        history
+    </span>
+    <h2>Subscriptions history</h2>
+</div>
+<ng-container *ngIf="subscriptionHistory$|async as history">
+    <table class="custom-table" *ngIf="history.length; else empty">
+        <thead>
+            <th>Creation date</th>
+            <th>Expiration date</th>
+            <th>Status</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of history">
+                <td> {{ a.date | date : 'short' }} </td>
+                <td> {{ a.endDate | date : 'short' }} </td>
+                <td>
+                    <span class="status-badge" [class.success]="a.active" [class.danger]="!a.active">{{ a.active ? 'active' : 'expired' }}</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>

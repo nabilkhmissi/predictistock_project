@@ -1,0 +1,22 @@
+<div class="section-title">
+    <span class="material-symbols-outlined">
+        package_2
+    </span>
+    <h2>Orders</h2>
+</div>
+<ng-container *ngIf="orders$|async as orders">
+    <table class="custom-table" *ngIf="orders.length; else empty">
+        <thead>
+            <th>Name</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of orders">
+                <td> {{ a.date | date : 'short' }} </td>
+            </tr>
+        </tbody>
+    </table>
+
+</ng-container>
+<ng-template #empty>
+    <app-empty-list></app-empty-list>
+</ng-template>
