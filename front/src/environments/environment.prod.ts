@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    baseUrl: "http://gateway:8000",
+    baseUrl: "http://54.146.120.47:8000"
 }

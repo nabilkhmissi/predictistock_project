@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, EMPTY, catchError, tap } from "rxjs";
+import { BehaviorSubject, EMPTY, catchError, map, tap } from "rxjs";
 import { LoadingService } from "./loading.service";
 import { Router } from "@angular/router";
 import { AlertService } from "src/shared/services/alert.service";
@@ -29,6 +29,9 @@ export class AuthService {
   login(email: string, password: string) {
     this._loading.showLoading();
     return this._http.post<ApiResponse>(`${this.baseUrl}/login`, { email: email, password: password }).pipe(
+      map(response => {
+        return { ...response.data, id: response.data._id }
+      }),
       tap(response => {
         this._loading.hideLoading();
         this.loginSuccess(response.data)

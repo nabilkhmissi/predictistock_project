@@ -36,18 +36,40 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: root
     volumes:
       - client_db:/data
-  #gateway:
-  #  container_name: gateway
-  #  build:
-  #    context: ./gateway
-  #  ports:
-  #    - 8000:8000
-  #front_end:
-  #  container_name: predictiStock_front
-  #  build:
-  #    context: ./front
-  #  ports:
-  #    - 4200:80
+  gateway:
+    container_name: gateway
+    build:
+      context: ./gateway
+    ports:
+      - 8000:8000
+
+  front_end:
+    container_name: predictiStock_front
+    build:
+      context: ./front
+    ports:
+      - 4200:80
+  article_microservice:
+    container_name: article_microservice
+    build:
+      context: ./article
+    ports:
+      - 3008:3008
+
+  users_microservice:
+    container_name: users_microservice
+    build:
+      context: ./users_v2
+    ports:
+      - 3007:3007
+  
+  clients_microservice:
+    container_name: clients_microservice
+    build:
+      context: ./client
+    ports:
+      - 3006:3006
+  
 volumes:
   article_db:
   client_db:
