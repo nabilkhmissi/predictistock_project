@@ -5,6 +5,7 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const config = require('./config/config')
 
 const PORT = config.GATEWAY_PORT;
+const MAIN_URL = config.MAIN_URL;
 const USER_PORT = config.USER_PORT;
 const ARTICLE_PORT = config.ARTICLE_PORT;
 const CLIENT_PORT = config.CLIENT_PORT;
@@ -13,59 +14,60 @@ const CLIENT_PORT = config.CLIENT_PORT;
 app.use(cors());
 
 // gateway for users app 
-app.use("/clients", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${USER_PORT}/clients`,
+app.use("/client", createProxyMiddleware({
+    target: `${MAIN_URL}:${USER_PORT}/client`,
     pathRewrite: {
-        '^/clients': '', // This rewrites the path to remove the "/auth" prefix
+        '^/client': '', // This rewrites the path to remove the "/auth" prefix
     },
 }))
 app.use("/auth", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${USER_PORT}/auth`,
+    target: `${MAIN_URL}:${USER_PORT}/auth`,
+    changeOrigin: true,
     pathRewrite: {
         '^/auth': '',
     },
 }))
 app.use("/company", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${USER_PORT}/company`,
+    target: `${MAIN_URL}:${USER_PORT}/company`,
     pathRewrite: {
         '^/company': '', // This rewrites the path to remove the "/auth" prefix
     },
 }))
 app.use("/subscription", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${USER_PORT}/subscription`,
+    target: `${MAIN_URL}:${USER_PORT}/subscription`,
     pathRewrite: {
         '^/subscription': '', // This rewrites the path to remove the "/auth" prefix
     },
 }))
 app.use("/subscription-type", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${USER_PORT}/subscription-type`,
+    target: `${MAIN_URL}:${USER_PORT}/subscription-type`,
     pathRewrite: {
         '^/subscription-type': ''
     }
 }))
 // gateway for article app 
 app.use("/article", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${ARTICLE_PORT}/article`,
+    target: `${MAIN_URL}:${ARTICLE_PORT}/article`,
     pathRewrite: {
         '^/article': ''
     }
 }))
 
 app.use("/category", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${ARTICLE_PORT}/category`,
+    target: `${MAIN_URL}:${ARTICLE_PORT}/category`,
     pathRewrite: {
         '^/category': ''
     }
 }))
 app.use("/company-order", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${ARTICLE_PORT}/company-order`,
+    target: `${MAIN_URL}:${ARTICLE_PORT}/company-order`,
     pathRewrite: {
         '^/company-order': ''
     }
 }))
 
 app.use("/supplier", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${ARTICLE_PORT}/supplier`,
+    target: `${MAIN_URL}:${ARTICLE_PORT}/supplier`,
     pathRewrite: {
         '^/supplier': ''
     }
@@ -73,21 +75,21 @@ app.use("/supplier", createProxyMiddleware({
 
 // gateway for client app 
 app.use("/customer", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${CLIENT_PORT}/customer`,
+    target: `${MAIN_URL}:${CLIENT_PORT}/customer`,
     pathRewrite: {
         '^/customer': ''
     }
 }))
 
 app.use("/activity", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${CLIENT_PORT}/activity`,
+    target: `${MAIN_URL}:${CLIENT_PORT}/activity`,
     pathRewrite: {
         '^/activity': ''
     }
 }))
 
 app.use("/customer-order", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${CLIENT_PORT}/customer-order`,
+    target: `${MAIN_URL}:${CLIENT_PORT}/customer-order`,
     pathRewrite: {
         '^/customer-order': ''
     }
