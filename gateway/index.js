@@ -5,11 +5,10 @@ const { createProxyMiddleware } = require("http-proxy-middleware");
 const config = require('./config/config')
 
 const PORT = config.GATEWAY_PORT;
-const USER_PORT = config.CLIENT_PORT;
+const USER_PORT = config.USER_PORT;
 const ARTICLE_PORT = config.ARTICLE_PORT;
-console.log(PORT);
-console.log(ARTICLE_PORT);
-console.log(USER_PORT);
+const CLIENT_PORT = config.CLIENT_PORT;
+
 
 app.use(cors());
 
@@ -53,20 +52,20 @@ app.use("/article", createProxyMiddleware({
 }))
 
 app.use("/category", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.ARTICLE_PORT}/category`,
+    target: `${config.MAIN_URL}:${ARTICLE_PORT}/category`,
     pathRewrite: {
         '^/category': ''
     }
 }))
 app.use("/company-order", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.ARTICLE_PORT}/company-order`,
+    target: `${config.MAIN_URL}:${ARTICLE_PORT}/company-order`,
     pathRewrite: {
         '^/company-order': ''
     }
 }))
 
 app.use("/supplier", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.ARTICLE_PORT}/supplier`,
+    target: `${config.MAIN_URL}:${ARTICLE_PORT}/supplier`,
     pathRewrite: {
         '^/supplier': ''
     }
@@ -74,21 +73,21 @@ app.use("/supplier", createProxyMiddleware({
 
 // gateway for client app 
 app.use("/customer", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.CLIENT_PORT}/customer`,
+    target: `${config.MAIN_URL}:${CLIENT_PORT}/customer`,
     pathRewrite: {
         '^/customer': ''
     }
 }))
 
 app.use("/activity", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.CLIENT_PORT}/activity`,
+    target: `${config.MAIN_URL}:${CLIENT_PORT}/activity`,
     pathRewrite: {
         '^/activity': ''
     }
 }))
 
 app.use("/customer-order", createProxyMiddleware({
-    target: `${config.MAIN_URL}:${config.CLIENT_PORT}/customer-order`,
+    target: `${config.MAIN_URL}:${CLIENT_PORT}/customer-order`,
     pathRewrite: {
         '^/customer-order': ''
     }

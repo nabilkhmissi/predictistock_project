@@ -8,6 +8,7 @@ const {
 } = require("./controller");
 const cors = require("cors");
 require("./db/connect")
+const config = require("./config/config");
 
 app.use(cors())
 app.use(express.json())
@@ -16,7 +17,8 @@ CategoryController(app);
 SupplierController(app);
 CompanyOrderController(app);
 
-app.listen(3000, () => {
+const PORT = config.PORT;
+app.listen(PORT, () => {
     console.clear();
-    console.log("app listening on port 3000")
+    console.log("app listening on port " + PORT);
 })
