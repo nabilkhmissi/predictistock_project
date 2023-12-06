@@ -7,7 +7,6 @@ const cors = require("cors");
 const errorHandler = require('./utility/error-handler');
 
 const PORT = config.PORT;
-const NODE_ENV = config.NODE_ENV;
 app.use(cors());
 connect_db();
 app.use(express.json());
@@ -18,9 +17,4 @@ app.use("/subscription-type", subscription_type_route);
 app.use("/subscription", subscription_route);
 app.use(errorHandler);
 
-if (NODE_ENV === "production") {
-    console.log("RUNNING IN PRODUCTION MODE");
-} else {
-    console.log("RUNNING IN DEVEOLOPMENT MODE");
-}
 app.listen(PORT, () => console.log("USER MICROSERVICE IS LISTENING ON PORT " + PORT));
